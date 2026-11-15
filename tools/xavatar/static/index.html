@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>XAVATAR Maker · PS4 Tools</title>
+<link rel="icon" href="/static/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="/"><img src="/static/icon.svg" alt="" width="26" height="26">PS4 <span>Tools</span></a>
+  <a class="small" href="/">All tools</a>
+</header>
+
+<main class="tool">
+  <div class="intro">
+    <h1>XAVATAR Maker</h1>
+    <p class="muted">Convert a picture into a PS4 <code>.xavatar</code> package.</p>
+  </div>
+
+  <div class="layout">
+    <section class="preview-panel">
+      <div id="drop" class="dropzone" tabindex="0" role="button" aria-label="Choose an image">
+        <img id="preview" alt="Avatar preview" hidden>
+        <div id="placeholder" class="placeholder">
+          <p><strong>Drop an image here</strong></p>
+          <p class="muted small">or click to <button type="button" class="link" id="browse">browse</button></p>
+          <p class="muted small">PNG, JPG or WebP · up to 25 MB</p>
+        </div>
+      </div>
+      <input type="file" id="file" accept="image/png,image/jpeg,image/webp,image/bmp" hidden>
+      <p class="muted small" id="fileinfo">No image selected · you can also paste from the clipboard</p>
+    </section>
+
+    <section class="controls">
+      <label class="switch">
+        <span class="switch-text">
+          <strong>Center-crop</strong>
+          <small>Otherwise the image is stretched to a square</small>
+        </span>
+        <input type="checkbox" id="crop" checked>
+        <span class="track" aria-hidden="true"></span>
+      </label>
+
+      <label class="switch">
+        <span class="switch-text">
+          <strong>Circle mask</strong>
+          <small>Transparent corners (DXT5 keeps the alpha)</small>
+        </span>
+        <input type="checkbox" id="circle">
+        <span class="track" aria-hidden="true"></span>
+      </label>
+
+      <label class="switch">
+        <span class="switch-text">
+          <strong>Offline profile set</strong>
+          <small>Adds <code>picture*.dds</code> and <code>online.json</code> for offline-activated accounts</small>
+        </span>
+        <input type="checkbox" id="offline" checked>
+        <span class="track" aria-hidden="true"></span>
+      </label>
+
+      <label class="field">
+        <span>Output name</span>
+        <input id="name" value="avatar" spellcheck="false" autocomplete="off">
+      </label>
+
+      <div class="buttons">
+        <button type="button" id="create" class="primary" disabled>Create .xavatar</button>
+        <button type="button" id="sample" class="ghost">Sample</button>
+      </div>
+
+      <p id="status" class="status" role="status"></p>
+    </section>
+  </div>
+</main>
+
+<footer class="foot">Copy the package to USB and install it with PS4-Xplorer, or use Avatar Changer.</footer>
+<script src="/xavatar/static/app.js"></script>
+</body>
+</html>
